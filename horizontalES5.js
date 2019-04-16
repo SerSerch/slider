@@ -131,11 +131,9 @@
       event = event || window.event;
       let elem = event.currentTarget;
       let delta = event.deltaY || event.detail || event.wheelDelta;
-      let top = +elem.pageYOffset || elem.scrollTop;
-      let bottom = elem.scrollHeight - (elem.clientHeight + top);
-      if (delta < 0 && top <= 1) {
+      if (delta < 0) {
         this.goToSlide(-1);
-      } else if (delta > 0 && bottom <= 1) {
+      } else if (delta > 0) {
         this.goToSlide(1);
       }
     };
